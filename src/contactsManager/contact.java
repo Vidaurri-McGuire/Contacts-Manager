@@ -1,12 +1,12 @@
 package contactsManager;
 
-public class contactsList {
+public class contact {
     // Declaring string variables
     private String firstName;
     private String lastName;
     private String phoneNumber;
 
-    public contactsList(String firstName, String lastName, String phoneNumber){
+    public contact(String firstName, String lastName, String phoneNumber){
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
