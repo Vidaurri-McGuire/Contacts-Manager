@@ -1,8 +1,9 @@
 package contactsManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
-public class updateContacts {
+public class updateContacts  {
 
     public static int startMenu(){
 
@@ -18,7 +19,21 @@ public class updateContacts {
         return userOption;
     }
 
-    public static void main(String[] args){
+    public static int  allContacts() throws IOException {
+
+//        FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
+        int people = 0;
+        for (int i = 0 ;i < fileLines.size(); i++){
+           people += i;
+        }
+        return people;
+    }
+
+    public static void main(String[] args) throws IOException {
         System.out.println(startMenu());
+        System.out.println(allContacts());
+
+
+
     }
 }

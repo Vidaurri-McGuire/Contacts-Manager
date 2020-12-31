@@ -1,15 +1,10 @@
 package contactsManager;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
-
-
 
 
 public class FileReader{
@@ -39,25 +34,17 @@ public List<String> fileLines;
         System.out.println(filePath);
         this.fileLines = Files.readAllLines(this.filePath);
 
-        String directoryPath = "src/contactsManager";
-        String contacts = "contacts.txt";
-
-        Files.readAllLines(Paths.get(directoryPath, contacts));
+//        String directoryPath = "src/contactsManager";
+//        String contacts = "contacts.txt";
+//
+//        Files.readAllLines(Paths.get(directoryPath, contacts));
 
 
     }
 
 
     // MAIN
-    public static void main(String[] args) throws IOException {
 
-//        File fileReader = new File("src/contacts.txt");
-//        Scanner sc = new Scanner(fileReader);
-//
-//        System.out.println(sc);
-        FileReader fileReader = new FileReader("contactsManager", "contacts.txt");
-
-    }
 
     public String getDirectoryName(){ return directoryName;}
     public void setDirectoryName(String directoryName){
