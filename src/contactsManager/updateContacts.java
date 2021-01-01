@@ -19,9 +19,9 @@ public class updateContacts  {
         return userOption;
     }
 
-    public static int  allContacts() throws IOException {
+    public static int  contactsList() throws IOException {
 
-//        FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
+        FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
         int people = 0;
         for (int i = 0 ;i < fileLines.size(); i++){
            people += i;
@@ -31,7 +31,7 @@ public class updateContacts  {
 
     public static void main(String[] args) throws IOException {
         System.out.println(startMenu());
-        System.out.println(allContacts());
+        System.out.println(contactsList());
 
 
 
