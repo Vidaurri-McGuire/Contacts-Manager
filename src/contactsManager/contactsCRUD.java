@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class updateContacts {
+public class contactsCRUD {
 
     public static int startMenu() {
 
@@ -26,21 +26,40 @@ public class updateContacts {
 
     }
 
-
-    public static void main(String[] args) throws IOException {
-//            System.out.println(startMenu());
-        FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
-            Files.write(
-                    Paths.get("src/contactsManager", "contacts.txt"),
-                    Arrays.asList("Ryan McGuire 123-4567"),
-                    StandardOpenOption.APPEND);
-
+    public static void viewContacts() throws IOException {
         Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
         List<String> contactsList = Files.readAllLines(contactsPath);
         for (int i = 0; i < contactsList.size(); i++) {
             System.out.println(contactsList.get(i));
         }
+
     }
+
+    public static void addContact() throws IOException {
+        Scanner sc = new Scanner(System.in);
+
+        String firstName;
+        String lastName;
+        String phoneNumber;
+        System.out.println("Enter first name");
+        firstName = sc.nextLine();
+
+        System.out.println("Enter last");
+        lastName = sc.nextLine();
+
+        System.out.println("Enter #");
+        phoneNumber = sc.nextLine();
+
+        Contact newContact = new Contact(firstName, lastName, phoneNumber);
+
+        Files.write(
+                Paths.get("src/contactsManager", "contacts.txt"),
+                Arrays.asList(newContact.toString()),
+                StandardOpenOption.APPEND);
+    }
+
+    // deletecontact(){
+    // }
 }
 
 
