@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class updateContacts {
+public class contactCrud {
 
     public static int startMenu() {
 
