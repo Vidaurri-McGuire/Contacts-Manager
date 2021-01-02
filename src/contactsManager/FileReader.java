@@ -30,16 +30,9 @@ public List<String> fileLines;
                 throw new IOException("Unable to create file. (" + this.fileName + ")!");
             }
         }
-
         System.out.println(filePath);
         this.fileLines = Files.readAllLines(this.filePath);
     }
-
-
-
-
-
-
 
 
     public String getDirectoryName(){ return directoryName;}

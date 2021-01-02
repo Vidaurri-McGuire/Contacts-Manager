@@ -9,11 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-<<<<<<< HEAD:src/contactsManager/contactCrud.java
-public class contactCrud {
-=======
 public class contactsCRUD {
->>>>>>> f7a192daf33a1b5e37eb3a3c612a597fa380cf48:src/contactsManager/contactsCRUD.java
 
     public static int startMenu() {
 
