@@ -40,7 +40,15 @@ public List<String> fileLines;
 //        Files.readAllLines(Paths.get(directoryPath, contacts));
 
 
+
     }
+
+
+        public static void main(String[] args) throws IOException {
+            FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
+            System.out.println(fileReader.getFileLines().get(0));
+//            System.out.println(startMenu());
+        }
 
 
 
