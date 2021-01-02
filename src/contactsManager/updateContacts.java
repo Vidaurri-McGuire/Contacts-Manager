@@ -1,6 +1,12 @@
 package contactsManager;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class updateContacts {
@@ -19,27 +25,22 @@ public class updateContacts {
         return userOption;
 
     }
-//    public static int contactsList() throws IOException {
-//        int people = 0;
-//        for (int i = 0; i < fileLines.size(); i++) {
-//            people += i;
-//        }
-//        return people;
 
 
-        public static void main (String[]args) throws IOException {
-            FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
-            System.out.println(fileReader.getFileLines().get(0));
-            System.out.println(fileReader.getFileLines().get(1));
-            System.out.println(fileReader.getFileLines().get(2));
-            System.out.println(fileReader.getFileLines().get(3));
-            System.out.println(fileReader.getFileLines().get(4));
-            System.out.println(fileReader.getFileLines().get(5));
-            System.out.println(fileReader.getFileLines().get(6));
-            System.out.println(fileReader.getFileLines().get(7));
-            System.out.println(fileReader.getFileLines().get(8));
+    public static void main(String[] args) throws IOException {
 //            System.out.println(startMenu());
+        FileReader fileReader = new FileReader("src/contactsManager", "contacts.txt");
+            Files.write(
+                    Paths.get("src/contactsManager", "contacts.txt"),
+                    Arrays.asList("Ryan McGuire 123-4567"),
+                    StandardOpenOption.APPEND);
+
+        Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
+        List<String> contactsList = Files.readAllLines(contactsPath);
+        for (int i = 0; i < contactsList.size(); i++) {
+            System.out.println(contactsList.get(i));
         }
     }
-//}
+}
+
 
