@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -50,7 +51,7 @@ public class contactsCRUD {
         System.out.println("Enter #");
         phoneNumber = sc.nextLine();
 
-        Contact newContact = new Contact(firstName, lastName, phoneNumber);
+        Contact newContact = new Contact(firstName, lastName, phoneNumber );
 
         Files.write(
                 Paths.get("src/contactsManager", "contacts.txt"),
@@ -58,8 +59,22 @@ public class contactsCRUD {
                 StandardOpenOption.APPEND);
     }
 
-    // deletecontact(){
-    // }
+     public static void searchContact() throws IOException {
+        Scanner sc = new Scanner(System.in);
+
+        String searchName;
+
+         System.out.println("Please enter the first name of the contact you would like to find.");
+         searchName = sc.nextLine();
+
+         Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
+         List<String> contactsList = Files.readAllLines(contactsPath);
+         for (String contact : contactsList){
+             if (contact.contains(searchName)){
+                 System.out.println(contact);
+             }
+         }
+     }
 }
 
 

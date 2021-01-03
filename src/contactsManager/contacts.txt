@@ -1,10 +1,4 @@
-Bob Jones 111-1111
-Jeff Roberts 222-2222
-Larry Smith 333-3333
-Sam Weller 444-4444
-Samantha Kimble 555-5555
-Kelly David 666-6666
-David Kelly 777-7777
-Molly Thecat 888-8888
-Becky Karen 999-9999Ryan McGuire 123-4567
-anthony | vidaurri | Phone #: 956-2389
+Bob | Jones | Phone #: 111-1111
+Jeff  | Roberts | Phone #: 222-2222
+Larry | Smith | Phone #: 333-3333
+Sam | Weller | Phone #: 444-4444
