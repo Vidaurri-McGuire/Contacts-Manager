@@ -5,24 +5,20 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class contactsCRUD {
 
     public static int startMenu() throws IOException {
 
-        boolean userContinues = true;
+
 
 
             System.out.println(" 1. View contacts");
             System.out.println(" 2. Add a new contact");
             System.out.println(" 3. Search a contact by name.");
             System.out.println(" 4. Delete an existing contact.");
-            System.out.println(" 5. Exit.");
-            System.out.println(" Enter an option (1, 2, 3, 4 or 5): ");
+            System.out.println(" Enter an option (1, 2, 3 or 4): ");
 
             Scanner sc = new Scanner(System.in);
             int userOption = sc.nextInt();
@@ -36,7 +32,7 @@ public class contactsCRUD {
                 default -> System.out.println("Thank you for using our contacts app!");
                 }
 
-            System.out.printf("\nWould you like to continue? (y/n)");
+            System.out.println("\nWould you like to continue? (y/n)");
             String userResponse = sc.next();
 
             if (userResponse.equalsIgnoreCase("y")) {
@@ -68,13 +64,13 @@ public class contactsCRUD {
         String phoneNumber;
 
     // user prompts
-        System.out.printf("\nEnter first name");
+        System.out.println("\nEnter first name:");
         firstName = sc.nextLine();
 
-        System.out.println("Enter last");
+        System.out.println("Enter last name:");
         lastName = sc.nextLine();
 
-        System.out.println("Enter #");
+        System.out.println("Enter phone #:");
         phoneNumber = sc.nextLine();
 
     // initializing new contact
@@ -83,7 +79,7 @@ public class contactsCRUD {
     // appending new contact to .txt file
         Files.write(
                 Paths.get("src/contactsManager", "contacts.txt"),
-                Arrays.asList(newContact.toString()),
+                Collections.singletonList(newContact.toString()),
                 StandardOpenOption.APPEND);
 
         System.out.println("\nContact added!");
@@ -94,7 +90,7 @@ public class contactsCRUD {
 
          String searchName;
 
-         System.out.println("Please enter the first name of the contact you would like to find.");
+         System.out.println("Please enter the first name, last name or phone number of the contact you would like to find.");
          searchName = sc.nextLine();
 
              Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
@@ -119,7 +115,7 @@ public class contactsCRUD {
      public static void deleteContact() throws IOException {
          Scanner sc = new Scanner(System.in);
 
-         System.out.println("Who would you like to delete?");
+         System.out.println("Enter first or last name of contact to delete");
          String userInput = sc.nextLine();
 
          Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
@@ -145,7 +141,8 @@ public class contactsCRUD {
                  Files.write(Paths.get("src/contactsManager", "contacts.txt"), newList);
                  System.out.println(userInput + " has been deleted!");
              }
+        }
      }
-}
+
 
 
