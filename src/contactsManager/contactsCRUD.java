@@ -37,11 +37,14 @@ public class contactsCRUD {
             System.out.println("Would you like to continue? (y/n)");
             String userResponse = sc.next();
 
-            if (!userResponse.equalsIgnoreCase("y")) {
+            if (userResponse.equalsIgnoreCase("y")) {
+                startMenu();
+            }else{
                 System.out.println("Thank you for using our contacts app!");
             }
             return userOption;
-        }while(true);
+
+        }while(userContinues);
 
     }
 
