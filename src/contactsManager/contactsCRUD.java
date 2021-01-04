@@ -79,9 +79,11 @@ public class contactsCRUD {
                 Paths.get("src/contactsManager", "contacts.txt"),
                 Arrays.asList(newContact.toString()),
                 StandardOpenOption.APPEND);
+
+        System.out.println("Contact added");
     }
 
-     public static String searchContact() throws IOException {
+     public static void searchContact() throws IOException {
          Scanner sc = new Scanner(System.in);
 
          String searchName;
@@ -92,24 +94,18 @@ public class contactsCRUD {
 
              Path contactsPath = Paths.get("src/contactsManager", "contacts.txt");
              List<String> contactsList = Files.readAllLines(contactsPath);
-
-             for (String contact : contactsList) {
-                 if (contact.contains(searchName)) {
-                     System.out.println(contact);
-                 }else{
-                     return searchName;
+             boolean contactFound = false;
+                 for (String contact : contactsList) {
+                         if (contact.contains(searchName)) {
+                             contactFound = true;
+                             System.out.println(contact);
+                      }
+                    }
+                        if(!contactFound){
+                        System.out.println("Sorry,contact not found");
                  }
+            }
 
-//                 System.out.println("Would you like to enter another name? (y/n)");
-//                 String userResponse = sc.next();
-
-//                 if (!userResponse.equalsIgnoreCase("y")) {
-//                     userContinues = false;
-//                     System.out.println("Thank you for using our contacts app!");
-//                 }
-             }
-         return searchName;
-         }
 
 
      public static void deleteContact() throws IOException {
